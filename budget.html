@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7f2">
+  <title>Sprout — Budget Buddy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Ethiopic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="budget.css">
+  <script src="budget.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header>
+      <a class="logo" href="#">sprout<span> ✳</span></a>
+      <span class="local">PRIVATE · SAVED ON THIS DEVICE</span>
+    </header>
+
+    <section class="hero">
+      <p class="kicker">A LITTLE MORE CLARITY · ግልጽ እቅድ</p>
+      <h1>Your money,<br><em>in balance.</em></h1>
+      <p class="muted">
+        Keep an eye on the month without the fuss.
+        <span lang="am">የወር ገንዘብዎን በቀላሉ ይከታተሉ።</span>
+      </p>
+    </section>
+
+    <section class="summary">
+      <article class="summary-card balance">
+        <span>MONTHLY BALANCE · <span lang="am">ወርሃዊ ቀሪ ሂሳብ</span></span>
+        <strong id="balance">0.00 Br</strong>
+        <small id="balance-note">Income minus expenses · <span lang="am">ገቢ ሲቀነስ ወጪ</span></small>
+      </article>
+      <article class="summary-card">
+        <span>INCOME · <span lang="am">ገቢ</span></span>
+        <strong id="income">0.00 Br</strong>
+        <small>Money coming in · <span lang="am">የገባ ገንዘብ</span></small>
+      </article>
+      <article class="summary-card">
+        <span>SPENDING · <span lang="am">ወጪ</span></span>
+        <strong id="spent">0.00 Br</strong>
+        <small>Money going out · <span lang="am">የወጣ ገንዘብ</span></small>
+      </article>
+    </section>
+
+    <section class="card">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">KEEP TRACK · ይመዝግቡ</p>
+          <h2>Add a transaction <span lang="am">ግብይት ያክሉ</span></h2>
+        </div>
+      </div>
+
+      <form id="entry-form">
+        <label>
+          Description · <span lang="am">መግለጫ</span>
+          <input id="description" maxlength="60" placeholder="e.g. Grocery run" required>
+        </label>
+        <label>
+          Amount · <span lang="am">መጠን</span>
+          <input id="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required>
+        </label>
+        <label>
+          Type · <span lang="am">አይነት</span>
+          <select id="type">
+            <option value="expense">Expense · ወጪ</option>
+            <option value="income">Income · ገቢ</option>
+          </select>
+        </label>
+        <label>
+          Category · <span lang="am">ምድብ</span>
+          <select id="category">
+            <option>Food · ምግብ</option>
+            <option>Transport · መጓጓዣ</option>
+            <option>Home · ቤት</option>
+            <option>Health · ጤና</option>
+            <option>Fun · መዝናኛ</option>
+            <option>Shopping · ግዢ</option>
+            <option>Pay · ደመወዝ</option>
+            <option>Other · ሌላ</option>
+          </select>
+        </label>
+        <button class="add" type="submit">
+          Add transaction <span lang="am">ግብይት ያክሉ</span> <span>＋</span>
+        </button>
+      </form>
+    </section>
+
+    <section class="card history">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">YOUR ACTIVITY · እንቅስቃሴዎ</p>
+          <h2>Recent transactions <span lang="am">የቅርብ ግብይቶች</span></h2>
+        </div>
+        <label class="month-label">
+          Month · <span lang="am">ወር</span>
+          <select id="month-filter" aria-label="Filter by month"></select>
+        </label>
+      </div>
+
+      <div id="transactions" class="transactions"></div>
+      <div id="empty" class="empty">
+        <span>✳</span>
+        <strong>No transactions for this month · <span lang="am">በዚህ ወር ግብይት የለም</span></strong>
+        <small>Add one above to see your budget take shape.</small>
+      </div>
+    </section>
+
+    <footer>
+      Small steps add up. 🌱 ·
+      <span lang="am">ትንንሽ እርምጃዎች ውጤት ያመጣሉ።</span>
+    </footer>
+  </main>
+</body>
+</html>
